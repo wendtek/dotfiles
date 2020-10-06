@@ -1,0 +1,1 @@
+COMMIT_TYPE: [STORY_ID]  
