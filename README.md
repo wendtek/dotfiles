@@ -6,21 +6,33 @@ This repository contains a series of applications/categories divided into module
 ### Prerequisites:
 
 1. **Install brew** using instructions at https://brew.sh.  
-`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+```shell
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+```
 
-2. **Download this repository** by whatever means possible.  
-`git clone git@github.com:wendtek/dotfiles.git`
+2. **Download this repository** by whatever means possible and update submodules. 
+```shell
+git clone https://github.com/wendtek/dotfiles.git && cd dotfiles 
+git submodule update --init --recursive
+```
 
 3. **Install brew bundle** using `brew` to get `stow` installed.  
-`brew bundle install`
+```shell
+brew bundle install
+```
+
+4. **Fix default zsh perms** with `chmod` (only needed for macOS)
+```shell
+chmod -R 755 /usr/local/share/zsh
+```
 
 
 
 ### Installing using `stow`
 
 Each module here can be installed using a 2 step process:
-1. `stow -n <module>` to check for conflicts in a dry-run.
-2. `stow <module>` to link the module to the repository.
+1. `stow -t $HOME -n <module>` to check for conflicts in a dry-run. Rename any files necessary.
+2. `stow -t $HOME <module>` to link the module to the repository.
 
 #### Module install order
 
