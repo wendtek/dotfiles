@@ -1,4 +1,4 @@
 [submodule "shell/.zprezto"]
 	path = shell/.zprezto
-	url = git@github.com:wendtek/zprezto.git
+	url = https://github.com/wendtek/prezto.git
 	branch = wendtek
