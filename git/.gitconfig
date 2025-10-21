@@ -1,7 +1,0 @@
-[user]
-	name = wendtek
-	email = wendtek@gmail.com
-[core]
-	hooksPath = /Users/kwendt/.git_template/hooks/
-[commit]
-	template = /Users/kwendt/.git_template/.git-commit-template.txt
