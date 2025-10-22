@@ -41,6 +41,12 @@ May have to manually remove `~/.zshrc` if it conflicts.
 #### Module install order
 
 1. `shell`
-2. `git`
+2. `config`
+3. `git`
 
-More to come later
+Copy pastable instructions commands for all of above:
+```
+stow -t $HOME --dotfiles -n shell
+stow -t $HOME/.config -n config
+stow -t $HOME --dotfiles -n git
+```
