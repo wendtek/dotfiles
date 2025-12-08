@@ -73,9 +73,9 @@ esac
 
 ## Non-Color settings - set to 'true' to enable
 # Show the actual numeric return value rather than a cross symbol.
-: ${AGNOSTER_STATUS_RETVAL_NUMERIC:=true}
+: ${AGNOSTER_STATUS_RETVAL_NUMERIC:=false}
 # Show git working dir in the style "/git/root   master  relative/dir" instead of "/git/root/relative/dir   master"
-: ${AGNOSTER_GIT_INLINE:=true}
+: ${AGNOSTER_GIT_INLINE:=false}
 # Show the git branch status in the prompt rather than the generic branch symbol
 : ${AGNOSTER_GIT_BRANCH_STATUS:=true}
 
@@ -105,12 +105,12 @@ prompt_segment() {
   [[ -n $1 ]] && bg="%K{$1}" || bg="%k"
   [[ -n $2 ]] && fg="%F{$2}" || fg="%f"
   if [[ $CURRENT_BG != 'NONE' && $1 != $CURRENT_BG ]]; then
-    echo -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%}"
+    echo -n "%{$bg%F{$CURRENT_BG}%}$SEGMENT_SEPARATOR%{$fg%} "
   else
-    echo -n "%{$bg%}%{$fg%}"
+    echo -n "%{$bg%}%{$fg%} "
   fi
   CURRENT_BG=$1
-  [[ -n $3 ]] && echo -n "$3"
+  [[ -n $3 ]] && echo -n $3
 }
 
 # End the prompt, closing any open segments
@@ -258,10 +258,10 @@ prompt_git() {
     zstyle ':vcs_info:*' check-for-changes true
     zstyle ':vcs_info:*' stagedstr '✚'
     zstyle ':vcs_info:*' unstagedstr '±'
-    zstyle ':vcs_info:*' formats ' %u%c'
-    zstyle ':vcs_info:*' actionformats ' %u%c'
+    zstyle ':vcs_info:*' formats '%u%c'
+    zstyle ':vcs_info:*' actionformats '%u%c'
     vcs_info
-    echo -n " ${${ref:gs/%/%%}/refs\/heads\//$PL_BRANCH_CHAR}${vcs_info_msg_0_%%}${mode}"
+    echo -n "${${ref:gs/%/%%}/refs\/heads\//$PL_BRANCH_CHAR}${vcs_info_msg_0_%%}${mode}"
     [[ $AGNOSTER_GIT_INLINE == 'true' ]] && prompt_git_relative
   fi
 }

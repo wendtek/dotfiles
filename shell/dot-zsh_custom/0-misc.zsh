@@ -6,6 +6,10 @@ export XDG_CONFIG_HOME=$HOME/.config
 # Various Aliases
 alias reload='source ~/.zshrc'
 
+# Various functions
+which_completion() {
+    print -r -- $functions_source[_${1}]
+}
 
 # Export OS and Architecture flags
 IS_ARM=false

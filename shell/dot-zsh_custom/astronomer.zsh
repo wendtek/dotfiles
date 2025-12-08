@@ -1,9 +1,7 @@
 
 # Completions
-# source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-# source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
-# source "$(brew --prefix)/etc/bash_completion.d/az"
 command -v flux >/dev/null && . <(flux completion zsh)
+command -v dataplane >/dev/null && . <(dataplane completion zsh)
 
 # Misc helper functions and aliases
 atoken() {

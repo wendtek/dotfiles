@@ -11,3 +11,5 @@
 	required = true
 [init]
 	defaultBranch = main
+[pager]
+	stash = false
