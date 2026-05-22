@@ -2,8 +2,9 @@
 	email = wendtek@users.noreply.github.com
 	name = Kevin Wendt
 
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
+[url "https://github.com/"]
+	insteadOf = ssh://git@github.com/
+        insteadOf = git@github.com:
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

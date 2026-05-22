@@ -81,6 +81,10 @@ plugins=(
   kind
 )
 
+if [[ "$OSTYPE" == darwin* ]]; then
+  plugins+=(iterm2)
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
